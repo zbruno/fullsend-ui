@@ -1,10 +1,11 @@
-import { css } from '@emotion/core';
-import emotionReset from 'emotion-reset';
+import { css } from '@emotion/core'
+import emotionReset from 'emotion-reset'
 
 export const GLOBAL_STYLES = css`
   ${emotionReset};
   html {
-    font-family: "Nunito", "system - ui", "BlinkMacSystemFont", "-apple - system", "sans - serif";
+    font-family: 'Nunito', 'system - ui', 'BlinkMacSystemFont',
+      '-apple - system', 'sans - serif';
   }
   @keyframes ripple {
     0% {
@@ -22,11 +23,11 @@ export const GLOBAL_STYLES = css`
       opacity: 0;
     }
   }
-`;
+`
 
 export const DEFAULT_TRANSITION = css`
   transition-property: none;
   transition-delay: 0s;
   transition-duration: 350ms;
   transition-timing-function: ease-in-out;
-`;
+`

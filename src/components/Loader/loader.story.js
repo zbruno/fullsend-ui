@@ -1,15 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import Loader from '.';
+import Loader from '.'
 
 export default {
   title: 'Loader',
   component: Loader,
   parameters: {
-    jest: [],
-  },
-};
+    jest: []
+  }
+}
 
-export const base = () => (
-  <Loader />
-);
+export const base = () => <Loader loaderStyle='secondary' />

@@ -1,10 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import ButtonProps from './button.types';
-import { ButtonElement, ButtonIcon, ButtonText, ButtonLoader } from './button.styles';
-import Icon from '../Icon';
-import Loader from '../Loader';
+import ButtonProps from './button.types'
+import {
+  ButtonElement,
+  ButtonIcon,
+  ButtonText,
+  ButtonLoader
+} from './button.styles'
+import Icon from '../Icon'
+import Loader from '../Loader'
 
 const Button = ({
   onClick,
@@ -30,10 +35,10 @@ const Button = ({
       )}
       <ButtonText>{children}</ButtonText>
       <ButtonLoader>
-        <Loader loaderStyle={loading ? 'disabled' : buttonStyle}/>
+        <Loader loaderStyle={loading ? 'disabled' : buttonStyle} />
       </ButtonLoader>
     </ButtonElement>
-  );
+  )
 }
 
 Button.propTypes = {
@@ -43,8 +48,8 @@ Button.propTypes = {
   buttonStyle: PropTypes.oneOf(['primary', 'secondary']),
   loading: PropTypes.bool,
   iconName: PropTypes.string,
-  type: PropTypes.oneOf(['button', 'reset', 'submit']),
-};
+  type: PropTypes.oneOf(['button', 'reset', 'submit'])
+}
 
 Button.defaultProps = {
   onClick() {},
@@ -52,6 +57,6 @@ Button.defaultProps = {
   buttonStyle: 'primary',
   loading: false,
   type: 'button'
-};
+}
 
-export default Button;
+export default Button
