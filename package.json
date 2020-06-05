@@ -60,6 +60,7 @@
     "@types/react-dom": "^16.9.7",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
+    "babel-plugin-emotion": "^10.0.33",
     "chromatic": "^4.0.3",
     "cross-env": "^7.0.2",
     "emotion-reset": "^2.0.7",
@@ -93,5 +94,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "babel": {
+    "plugins": [
+      "babel-plugin-emotion"
+    ]
+  }
 }
