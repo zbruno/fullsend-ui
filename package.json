@@ -1,10 +1,10 @@
 {
-  "name": "sendit",
+  "name": "fullsend-ui",
   "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "zbruno",
   "license": "MIT",
-  "repository": "zbruno/sendit",
+  "repository": "zbruno/fullsend-ui",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
