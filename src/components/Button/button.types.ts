@@ -1,20 +1,17 @@
-import { StandardTypes } from '../../constants/types'
-import { IconName } from '@fortawesome/fontawesome-svg-core'
+export enum ButtonStyle {
+  Primary,
+  Secondary
+}
 
-export type ButtonStyle = 'primary' | 'secondary'
-
-/**
- * Button type.
- */
-export type ButtonType = 'submit' | 'reset' | 'button'
-
-export default interface ButtonProps extends StandardTypes {
+export type ButtonProps = {
   /**
    * Sets the component as disabled.
+   * @default false
    */
   disabled?: boolean
   /**
    * Sets the component as loading.
+   * @default false
    */
   loading?: boolean
   /**
@@ -27,16 +24,12 @@ export default interface ButtonProps extends StandardTypes {
   children: React.ReactNode
   /**
    * Sets the button style type. By default primary.
-   * @default primary
+   * @default ButtonStyle.Primary
    */
   buttonStyle?: ButtonStyle
   /**
-   * Sets the button type. By default button.
-   * @default button
+   * The icon to display. By default no icon will display.
    */
-  type?: ButtonType
-  /**
-   * The name of the icon to display. By default no icon is display.
-   */
-  iconName?: IconName
+  icon?: React.ReactNode
+  'aria-label': string
 }

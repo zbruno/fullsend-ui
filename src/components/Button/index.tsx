@@ -1,62 +1,42 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
+import cx from 'classnames'
 
-import ButtonProps from './button.types'
-import {
-  ButtonElement,
-  ButtonIcon,
-  ButtonText,
-  ButtonLoader
-} from './button.styles'
-import Icon from '../Icon'
-import Loader from '../Loader'
+import { ButtonProps, ButtonStyle } from './button.types'
+// import Loader from '../Loader'
 
 const Button = ({
-  onClick,
-  disabled,
+  buttonStyle = ButtonStyle.Primary,
   children,
-  buttonStyle,
-  loading,
-  type,
-  iconName
+  disabled = false,
+  loading = false,
+  'aria-label': ariaLabel,
+  icon,
+  onClick
 }: ButtonProps) => {
+  const shouldBeDisabled = disabled || loading
+  const classes = cx({
+    btn: true,
+    primary: buttonStyle === ButtonStyle.Primary,
+    secondary: buttonStyle === ButtonStyle.Secondary,
+    disabled: shouldBeDisabled
+  })
+
   return (
-    <ButtonElement
+    <button
       disabled={disabled || loading}
-      loading={loading}
-      type={type}
+      type='button'
       onClick={onClick}
-      buttonStyle={buttonStyle}
+      aria-label={ariaLabel}
+      aria-disabled={shouldBeDisabled}
+      className={classes}
     >
-      {iconName && (
-        <ButtonIcon>
-          <Icon iconName={iconName} />
-        </ButtonIcon>
-      )}
-      <ButtonText>{children}</ButtonText>
-      <ButtonLoader>
-        <Loader loaderStyle={loading ? 'disabled' : buttonStyle} />
-      </ButtonLoader>
-    </ButtonElement>
+      {icon && <div>{icon}</div>}
+      <span>{children}</span>
+      <div>
+        {/* <Loader loaderStyle={loading ? 'disabled' : buttonStyle} /> */}
+      </div>
+    </button>
   )
-}
-
-Button.propTypes = {
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  children: PropTypes.string.isRequired,
-  buttonStyle: PropTypes.oneOf(['primary', 'secondary']),
-  loading: PropTypes.bool,
-  iconName: PropTypes.string,
-  type: PropTypes.oneOf(['button', 'reset', 'submit'])
-}
-
-Button.defaultProps = {
-  onClick() {},
-  disabled: false,
-  buttonStyle: 'primary',
-  loading: false,
-  type: 'button'
 }
 
 export default Button
